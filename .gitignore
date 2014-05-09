@@ -1,0 +1,10 @@
+aclibr.Rcheck
+aclibr.Rproj
+.Rproj.user
+.Rhistory
+test_src.R
+html
+*.tar.gz
+*.swp
+src/*.so
+src/*.o
