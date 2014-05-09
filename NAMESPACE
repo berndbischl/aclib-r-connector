@@ -1,1 +1,5 @@
+S3method(print,AClibScenario)
+export(parseScenario)
 import(BBmisc)
+import(ParamHelpers)
+import(stringr)

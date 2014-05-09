@@ -2,10 +2,14 @@
 # note that the object is only partially constructed
 # the rest is done via parseScenario
 parseScenarioFile = function(aclib.dir, scen.dir) {
-  checkArg(aclib.dir, "character", len = 1L, na.ok = FALSE)
+  checkDir(aclib.dir)
   checkArg(scen.dir, "character", len = 1L, na.ok = FALSE)
+  
+  #FIXME: use checkmate
+  path = file.path(aclib.dir, "scenarios", scen.dir, "scenario.txt")
+  checkFile(path)
+  stopifnot(file.exists(path))
 
-  path = file.path(aclib.dir, scen.dir)
   lines = readLines(path)
   lines = trimAndRemoveEmptyLines(lines)
 
