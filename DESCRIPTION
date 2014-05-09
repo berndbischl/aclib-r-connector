@@ -1,0 +1,14 @@
+Package: aclibr
+Title: Connector for algorithm configuration benchmark library AClib.
+Description: foo
+Author: Bernd Bischl <bernd_bischl@gmx.net>
+Maintainer: Bernd Bischl <bernd_bischl@gmx.net>
+License: BSD_3_clause + file LICENSE
+Imports:
+    BBmisc (>= 1.4)
+Depends:
+  ParamHelpers (>= 1.2)
+Suggests:
+    testthat
+LazyData: yes
+Version: 1.0
