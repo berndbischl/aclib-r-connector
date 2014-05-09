@@ -1,0 +1,20 @@
+\name{parseScenario}
+\alias{parseScenario}
+\title{Parses AClib scenario into an S3 object.}
+\usage{
+parseScenario(aclib.dir, scen.dir)
+}
+\arguments{
+  \item{aclib.dir}{[\code{character(1)}]\cr File path to
+  AClib installation dir.}
+
+  \item{scen.dir}{[\code{character(1)}]\cr File path to
+  scenario dir.  Relative to \code{aclib.dir}.}
+}
+\value{
+[\code{AClibScenario}].
+}
+\description{
+Parses AClib scenario into an S3 object.
+}
+
