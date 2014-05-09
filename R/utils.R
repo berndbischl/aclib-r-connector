@@ -10,7 +10,7 @@ checkFile = function(path) {
 # check that path is a dir
 checkDir = function(path) {
   checkArg(path, "character", len = 1L, na.ok = FALSE)
-  if (!file.exists(path)) 
+  if (!file.exists(path))
     stopf("Directory not found: %s", path)
   if(!isDirectory(path))
     stopf("Path is not a directory: %s", path)
@@ -42,7 +42,7 @@ splitAndTrim = function(x, s, n = Inf, convert = as.character) {
   convert(x)
 }
 
-# remove comments starting with '#' from lines
+# remove comments starting with # from char vec lines
 removeComments = function(lines) {
   lines = str_replace_all(lines, "#.*$", "")
   return(lines)
