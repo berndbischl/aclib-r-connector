@@ -1,10 +1,13 @@
 #FIXME: checkmat
+
+# check that path is a file
 checkFile = function(path) {
   checkArg(path, "character", len = 1L, na.ok = FALSE)
   if (!file.exists(path))
     stopf("File not found: %s", path)
 }
 
+# check that path is a dir
 checkDir = function(path) {
   checkArg(path, "character", len = 1L, na.ok = FALSE)
   if (!file.exists(path)) 
@@ -37,6 +40,12 @@ splitAndTrim = function(x, s, n = Inf, convert = as.character) {
   x = str_split(x, s, n = n)[[1]]
   x = str_trim(x)
   convert(x)
+}
+
+# remove comments starting with '#' from lines
+removeComments = function(lines) {
+  lines = str_replace_all(lines, "#.*$", "")
+  return(lines)
 }
 
 # removes chars from a string
