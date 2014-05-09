@@ -60,7 +60,7 @@ consume = function(s, regexp) {
   checkArg(s, "character", len = 1L, na.ok = FALSE)
   checkArg(regexp, "character", len = 1L, na.ok = FALSE)
   e = str_extract(s, regexp)
-  r = str_split(s, e)[[1L]][1L]
+  r = str_split(s, e)[[1L]][2L]
   list(match = e, rest = r)
 }
 
