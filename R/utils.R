@@ -31,6 +31,12 @@ trimAndRemoveEmptyLines = function(lines) {
   removeEmptyLines(trimLines(lines))
 }
 
+# check, read, trim, remove empty lines
+readTxtTrimAndRemove = function(path) {
+  checkFile(path)
+  lines = readLines(path)
+  removeEmptyLines(trimLines(lines))
+}
 
 # splits a string, then trims the parts, then possibly converts the data type
 splitAndTrim = function(x, s, n = Inf, convert = as.character) {
@@ -45,7 +51,7 @@ splitAndTrim = function(x, s, n = Inf, convert = as.character) {
 # remove comments starting with # from char vec lines
 removeComments = function(lines) {
   lines = str_replace_all(lines, "#.*$", "")
-  return(lines)
+  trimAndRemoveEmptyLines(lines)
 }
 
 # removes chars from a string

@@ -4,21 +4,16 @@
 parseScenarioFile = function(aclib.dir, scen.dir) {
   checkDir(aclib.dir)
   checkArg(scen.dir, "character", len = 1L, na.ok = FALSE)
-  
-  #FIXME: use checkmate
-  path = file.path(aclib.dir, "scenarios", scen.dir, "scenario.txt")
-  checkFile(path)
-  stopifnot(file.exists(path))
 
-  lines = readLines(path)
-  lines = trimAndRemoveEmptyLines(lines)
+  path = file.path(aclib.dir, "scenarios", scen.dir, "scenario.txt")
+  readTxtTrimAndRemove(path)
 
   # get line which starts with '<prefix> =' and extract 2nd part after '='
   getPart = function(prefix, convert = as.character) {
     prefix = sprintf("%s =", prefix)
     j = str_detect(lines, prefix)
     line = lines[j]
-    res = str_split(line, "=")[[1]][2]
+    res = str_split(line, "=")[[1L]][2L]
     convert(str_trim(res))
   }
 

@@ -2,14 +2,9 @@
 parseInstances = function(scen, instance.file) {
   checkArg(scen, "AClibScenario")
   checkArg(instance.file, choices = c("train.instance.file", "test.instance.file"))
+  
   path = file.path(scen$aclib.dir, scen[[instance.file]])
-  #FIXME: checkmate
-  if (!file.exists(path)) {
-    stopf("Instance file not found: %s", path)
-  }
-  lines = readLines(path)
-  lines = trimAndRemoveEmptyLines(lines)
-  return(lines)
+  readTxtTrimAndRemove(path)
 }
 
 parseInstancesTrain = function(scen) parseInstances(scen, "train.instance.file")
