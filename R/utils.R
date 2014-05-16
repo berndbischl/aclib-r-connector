@@ -34,7 +34,7 @@ trimAndRemoveEmptyLines = function(lines) {
 # check, read, trim, remove empty lines
 readTxtTrimAndRemove = function(path) {
   checkFile(path)
-  lines = readLines(path)
+  lines = readLines(path, warn = FALSE)
   removeEmptyLines(trimLines(lines))
 }
 
