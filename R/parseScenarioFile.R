@@ -6,7 +6,7 @@ parseScenarioFile = function(aclib.dir, scen.dir) {
   checkArg(scen.dir, "character", len = 1L, na.ok = FALSE)
 
   path = file.path(aclib.dir, "scenarios", scen.dir, "scenario.txt")
-  readTxtTrimAndRemove(path)
+  lines = readTxtTrimAndRemove(path)
 
   # get line which starts with '<prefix> =' and extract 2nd part after '='
   getPart = function(prefix, convert = as.character) {

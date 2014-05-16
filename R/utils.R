@@ -65,8 +65,9 @@ removeChars = function(x, chars) {
 consume = function(s, regexp) {
   checkArg(s, "character", len = 1L, na.ok = FALSE)
   checkArg(regexp, "character", len = 1L, na.ok = FALSE)
-  e = str_extract(s, regexp)
-  r = str_split(s, e)[[1L]][2L]
+  loc = str_locate(s, regexp)[1L, ]
+  e = substr(s, loc[1L], loc[2L])
+  r = paste0(str_sub(s, 1, loc[1L] - 1L), str_sub(s, loc[2L] + 1L, str_length(s)))
   list(match = e, rest = r)
 }
 
