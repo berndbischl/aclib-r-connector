@@ -27,6 +27,7 @@ runAlgoOnInstance = function(scen, instance, vals, seed = 123L, cutoff.time, sho
     cutoff.time = convertInteger(cutoff.time)
     checkArg(cutoff.time, "integer", len = 1L, lower = 0L, upper = scen$cutoff.time, na.ok = FALSE)
   }
+  checkArg(show.info, "logical", len = 1L, na.ok = FALSE)
   # cmd = file.path(scen$aclib.dir, scen$algo)
 
   # build args for cmd
