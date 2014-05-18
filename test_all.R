@@ -1,6 +1,7 @@
 library(methods)
 library(devtools)
 library(testthat)
+library(checkmate)
 library(BBmisc)
 library(stringr)
 

@@ -2,9 +2,7 @@
 # note that the object is only partially constructed
 # the rest is done via parseScenario
 parseScenarioFile = function(aclib.dir, scen.dir) {
-  checkDir(aclib.dir)
-  checkArg(scen.dir, "character", len = 1L, na.ok = FALSE)
-
+  # no checks, these are done in parseScenario
   path = file.path(aclib.dir, "scenarios", scen.dir, "scenario.txt")
   lines = readTxtTrimAndRemove(path)
 

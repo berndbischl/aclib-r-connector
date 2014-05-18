@@ -8,8 +8,9 @@
 #' @return [\code{AClibScenario}].
 #' @export
 parseScenario = function(aclib.dir, scen.dir) {
-  checkArg(aclib.dir, "character", len = 1L, na.ok = FALSE)
-  checkArg(scen.dir, "character", len = 1L, na.ok = FALSE)
+  adir(aclib.dir)
+  # FIXME: reldir check in checkmate? so that the string is simply a path? or what?
+  astring(scen.dir)
 
   # read txt file, get s3 object
   s = parseScenarioFile(aclib.dir, scen.dir)
@@ -20,9 +21,8 @@ parseScenario = function(aclib.dir, scen.dir) {
   return(s)
 }
 
-#' @S3method print AClibScenario
+#' @export
 print.AClibScenario = function(x, ...) {
-  # print 
   for (i in 1:8) {
     catf("%-20s : %s", names(x)[i], x[[i]])
   }
