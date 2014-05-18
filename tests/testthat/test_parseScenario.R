@@ -17,9 +17,9 @@ test_that("parseScenario", {
     ok = sapply(xs, isFeasible, par = ps)
     expect_true(all(ok))
 
-    # run on a few vals to see it that works
+    # run on a few vals to see that it works
     xs = dfRowsToList(des[1:3, ], par.set = ps)
-    ys = sapply(xs, runAlgoOnInstance, scen = s, instance = s$train.instances[1L], show.info = FALSE,
+    ys = sapply(xs, runAlgoOnInstance, scen = s, instance = s$train.instances[1L], show.info = TRUE,
       seed = 1, cutoff.time = 1L)
 
   }
