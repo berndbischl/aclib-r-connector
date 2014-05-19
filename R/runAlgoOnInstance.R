@@ -17,21 +17,20 @@
 #'   Default is \code{scen$cutoff.time}.
 #' @export
 runAlgoOnInstance = function(scen, instance, vals, seed = 123L, cutoff.time, show.info = TRUE) {
-  aAClibScenario(scen)
+  checkAClibScenario(scen)
   ps = scen$par.set
-  achoice(instance, c(scen$train.instances, scen$test.instance.file))
-  alistnu(vals)
+  checkArg(instance, choices = c(scen$train.instances, scen$test.instance.file))
+  checkArg(vals, "list")
   if (!isFeasible(ps, vals))
     stopf("Parameter setting is not feasible:\n%s", paramValueToString(ps, vals))
   seed = convertInteger(seed)
-  seed = aint(seed)
+  seed = checkArg(seed, "integer", len = 1L, na.ok = FALSE)
   if (missing(cutoff.time)) {
     cutoff.time = scen$cutoff.time
   } else {
-    cutoff.time = convertInteger(cutoff.time)
-    anump(cutoff.time, upper = scen$cutoff.time)
+    checkArg(cutoff.time, "numeric", lower = 0, upper = scen$cutoff.time)
   }
-  aflag(show.info)
+  checkArg(show.info, "logical", len = 1L, na.ok = FALSE)
   # cmd = file.path(scen$aclib.dir, scen$algo)
 
   # defs = getDefaultValues(ps)
