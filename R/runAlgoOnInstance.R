@@ -24,7 +24,7 @@ runAlgoOnInstance = function(scen, instance, vals, seed = 123L, cutoff.time, sho
   if (!isFeasible(ps, vals))
     stopf("Parameter setting is not feasible:\n%s", paramValueToString(ps, vals))
   seed = convertInteger(seed)
-  seed = checkArg(seed, "integer", len = 1L, na.ok = FALSE)
+  checkArg(seed, "integer", len = 1L, na.ok = FALSE)
   if (missing(cutoff.time)) {
     cutoff.time = scen$cutoff.time
   } else {
